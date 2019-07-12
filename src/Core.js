@@ -29,6 +29,7 @@ export const Page = styled('div')`
 `;
 
 export const PageHeader = styled('header')`
+  min-height: ${pxToRem(48)};
   border-bottom: 1px solid ${vars.gray90};
 
   @supports (grid-area: auto) {
@@ -37,6 +38,8 @@ export const PageHeader = styled('header')`
   }
 
   @media (min-width: ${vars.tablet}) {
+    min-height: ${pxToRem(64)};
+
     @supports (grid-area: auto) {
       ${grid('tablet')};
       ${gridColumn(1, -1, false, 'tablet')};
@@ -84,4 +87,31 @@ export const PageLogo = styled('div')`
       ${gridColumn(5, 6)};
     }
   } // end desktop
+`;
+
+export const PageSubheader = styled('header')`
+  margin-bottom: ${pxToRem(40)};
+  text-align: center;
+
+  @supports (grid-area: auto) {
+    ${gridColumn(2, 6)};
+    ${gridRow(2, 1)};
+
+    @media (min-width: ${vars.tablet}) {
+      ${gridColumn(2, 8)};
+    }
+
+    @media (min-width: ${vars.desktop}) {
+      ${gridColumn(2, 12)};
+    }
+  } // end supports
+`;
+
+export const PageSubheading = styled('h1')`
+  letter-spacing: ${pxToRem(1)};
+  color: ${vars.black};
+  word-break: break-word;
+  margin: ${pxToRem(26)} 0 ${pxToRem(12)};
+  font-size: ${pxToRem(32)};
+  line-height: ${pxToRem(44)};
 `;
