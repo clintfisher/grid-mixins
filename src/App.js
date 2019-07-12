@@ -1,9 +1,11 @@
 import React from 'react';
+import GlobalStyles from './GlobalStyles';
 import * as Core from './Core';
 
 const App = () => {
   return (
     <Core.Shell>
+      <GlobalStyles />
       <Core.Page>
         <Core.PageHeader>
           <Core.PageLogo>
@@ -11,7 +13,7 @@ const App = () => {
           </Core.PageLogo>
         </Core.PageHeader>
         <Core.PageSubheader>
-          <Core.PageSubheading>lat-user-1</Core.PageSubheading>
+          <Core.PageSubheading>Cherry Valance</Core.PageSubheading>
         </Core.PageSubheader>
       </Core.Page>
     </Core.Shell>

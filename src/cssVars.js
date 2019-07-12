@@ -1,4 +1,6 @@
 // palette
+const black = '#000';
+const white = '#fff';
 const gray20 = '#333';
 const gray40 = '#666';
 const gray60 = '#999';
@@ -23,6 +25,8 @@ export default {
   baseFontSize,
   tablet,
   desktop,
+  black,
+  white,
   gray20,
   gray40,
   gray60,
