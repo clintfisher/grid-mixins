@@ -1,4 +1,4 @@
-import vars from "./cssVars";
+import vars from './cssVars';
 
 /**
  * Returns the a rem value from a px value input
@@ -8,7 +8,7 @@ import vars from "./cssVars";
  * // margin-right: pxToRem(8);
  * // returns 0.5rem
  */
-export const pxToRem = size => {
+export const pxToRem = (size) => {
   const sizeBase = vars.baseFontSize;
   const remSize = size / sizeBase;
   return `${remSize}rem`;
@@ -23,15 +23,15 @@ export const pxToRem = size => {
 export const gridSpec = {
   mobile: {
     columns: 6,
-    columnGap: "1.25rem"
+    columnGap: '1.25rem'
   },
   tablet: {
     columns: 8,
-    columnGap: "1.875rem"
+    columnGap: '1.875rem'
   },
   desktop: {
     columns: 12,
-    columnGap: "2.5rem"
+    columnGap: '2.5rem'
   }
 };
 
@@ -44,7 +44,7 @@ export const gridSpec = {
  * repeat(4, '3fr');
  * // returns 3fr 3fr 3fr 3fr
  */
-export const repeat = (repetitions, expression = "1fr") => {
+export const repeat = (repetitions, expression = '1fr') => {
   const string = `${expression} `;
   return string.repeat(repetitions);
 };
@@ -55,7 +55,7 @@ export const repeat = (repetitions, expression = "1fr") => {
  * @param { object } spec - grid definitions
  * @returns { string } - grid display rules
  */
-export const grid = (breakpoint = "mobile", spec = gridSpec) => {
+export const grid = (breakpoint = 'mobile', spec = gridSpec) => {
   const getGridSpec = () => {
     const specItem = spec[breakpoint];
     return `
@@ -93,7 +93,7 @@ export const gridColumn = (
   start,
   end,
   span = true,
-  breakpoint = "mobile",
+  breakpoint = 'mobile',
   spec = gridSpec
 ) => {
   return `

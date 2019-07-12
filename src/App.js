@@ -1,5 +1,5 @@
-import React from "react";
-import * as Core from "./Core";
+import React from 'react';
+import * as Core from './Core';
 
 const App = () => {
   return (
