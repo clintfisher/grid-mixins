@@ -6,7 +6,9 @@ const App = () => {
     <Core.Shell>
       <Core.Page>
         <Core.PageHeader>
-          <img src="logo-lat-701x88-333333.svg" alt="Los Angeles Times" />
+          <Core.PageLogo>
+            <img src="logo-lat-701x88-333333.svg" alt="Los Angeles Times" />
+          </Core.PageLogo>
         </Core.PageHeader>
       </Core.Page>
     </Core.Shell>
