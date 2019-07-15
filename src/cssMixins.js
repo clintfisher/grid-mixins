@@ -74,8 +74,6 @@ export const grid = (breakpoint = 'mobile', spec = gridSpec) => {
  * @param { number } start - grid line column starts at
  * @param { number } end - grid line column ends at
  * @param { bool } span - false to use grid line end (see example 2)
- * @param { string } breakpoint - grid line column ends at
- * @param { string } spec - grid line column ends at
  *
  * @returns { string } - grid-column declarations
  * @example
