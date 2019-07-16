@@ -3,7 +3,14 @@ import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import vars from './cssVars';
-import { grid, gridColumn, gridRow, pxToRem } from './cssMixins';
+import {
+  grid,
+  gridColumn,
+  gridRow,
+  pxToRem,
+  font,
+  fontSize
+} from './cssMixins';
 
 export const Shell = (props) => {
   const shell = css`
@@ -99,13 +106,18 @@ export const PageSubheader = styled('header')`
 `;
 
 export const PageSubheading = styled('h1')`
+  font-size: 32px;
+  line-height: 44px;
+  font-weight: 300;
   letter-spacing: ${pxToRem(1)};
   color: ${vars.black};
   word-break: break-word;
   margin: ${pxToRem(26)} 0 ${pxToRem(12)};
-  font-size: ${pxToRem(32)};
-  line-height: ${pxToRem(44)};
-  font-weight: 300;
+
+  @media (min-width: ${vars.tablet}) {
+    font-size: 60px;
+    line-height: 60px;
+  }
 `;
 
 export const PageBlurb = styled('p')`
@@ -141,22 +153,19 @@ export const PageBody = styled('main')`
   }
 
   @supports (grid-area: auto) {
-    ${grid('mobile')};
-    ${gridColumn(1, -1, false, 'mobile')};
+    display: grid;
+    grid-template-columns: subgrid;
+    ${gridColumn(1, -1, false)};
     ${gridRow(3, 1)};
     margin-right: 0;
     margin-left: 0;
 
     @media (min-width: ${vars.tablet}) {
-      ${grid('tablet')};
-      ${gridColumn(1, -1, false, 'tablet')};
       margin-right: 0;
       margin-left: 0;
     }
 
     @media (min-width: ${vars.desktop}) {
-      ${grid('desktop')};
-      ${gridColumn(1, -1, false, 'desktop')};
       margin-right: 0;
       margin-left: 0;
     }
@@ -182,8 +191,8 @@ const rowBase = (props) => {
     }
 
     @supports (grid-area: auto) {
-      ${grid('mobile')};
-      ${gridColumn(1, -1, false, 'mobile')};
+      display: grid;
+      ${gridColumn(1, -1, false)};
       align-content: start;
     }
   `;
@@ -217,8 +226,7 @@ const rowTabletBase = (props) => {
       : ''};
 
     @supports (grid-area: auto) {
-      ${grid('tablet')};
-      ${gridColumn(1, -1, false, 'tablet')};
+      ${gridColumn(1, -1, false)};
     }
   `;
 };
@@ -226,8 +234,7 @@ const rowTabletBase = (props) => {
 export const rowDesktopBase = () => {
   return css`
     @supports (grid-area: auto) {
-      ${grid('desktop')};
-      ${gridColumn(1, -1, false, 'desktop')};
+      ${gridColumn(1, -1, false)};
     }
   `;
 };
@@ -254,6 +261,116 @@ export const Row = styled('div')`
   @media (min-width: ${vars.desktop}) {
     ${rowDesktopBase};
   }
+`;
+
+/**
+ * RowList - generic list component that provides the grid
+ * and either a top or center border
+ * additional styling if needed, is handled contextually in
+ * parent component. use emotions component as selector
+ * @prop {string} bordered - gives RowList a top border
+ * @prop {string} divided - gives RowList a center border
+ * @returns { node } - div
+ * @example
+ * // ${RowList} {}
+ */
+
+export const RowList = styled('ul')`
+  ${rowBase};
+  list-style: none;
+  margin: 0 0 ${pxToRem(40)};
+  padding: 0;
+
+  > li {
+    margin-bottom: ${pxToRem(32)};
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @supports (grid-area: auto) {
+      ${gridColumn(2, 6)};
+    }
+  } // end li
+
+  @media (min-width: ${vars.tablet}) {
+    ${rowTabletBase}
+
+    > li {
+      max-width: calc(25% - 1rem); // ie
+      position: relative;
+      display: flex;
+      flex-shrink: 0;
+      margin-bottom: 0;
+      margin-right: 1rem;
+
+      @supports (grid-area: auto) {
+        max-width: none;
+        margin-right: 0;
+
+        &:after {
+          position: absolute;
+          right: -15px;
+          display: block;
+          content: '';
+          width: 1px;
+          height: 100%;
+          background-color: ${vars.gray90};
+        }
+
+        &:last-of-type {
+          &:after {
+            display: none;
+          }
+        } // end last-of-type
+
+        &:nth-of-type(1) {
+          ${gridColumn(2, 2)};
+        }
+
+        &:nth-of-type(2) {
+          ${gridColumn(4, 2)};
+        }
+
+        &:nth-of-type(3) {
+          ${gridColumn(6, 2)};
+        }
+
+        &:nth-of-type(4) {
+          ${gridColumn(8, 2)};
+        }
+      } // end supports
+    } // end li
+  } // end tablet
+
+  @media (min-width: ${vars.desktop}) {
+    ${rowDesktopBase};
+    margin-bottom: ${pxToRem(60)};
+
+    > li {
+      @supports (grid-area: auto) {
+        &:after {
+          right: -20px;
+        }
+
+        &:nth-of-type(1) {
+          ${gridColumn(2, 3)};
+        }
+
+        &:nth-of-type(2) {
+          ${gridColumn(5, 3)};
+        }
+
+        &:nth-of-type(3) {
+          ${gridColumn(8, 3)};
+        }
+
+        &:nth-of-type(4) {
+          ${gridColumn(11, 3)};
+        }
+      } // end supports
+    } // end li
+  } // end desktop
 `;
 
 export const HR = styled('hr')`
