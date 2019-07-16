@@ -60,6 +60,40 @@ const App = () => {
                 </CoreNewsletters.Newsletter>
               </li>
             </Core.RowList>
+            <Core.RowList>
+              <li>
+                <CoreNewsletters.Newsletter>
+                  <CoreNewsletters.Image />
+                  <CoreNewsletters.Category>
+                    News &amp; Politics
+                  </CoreNewsletters.Category>
+                </CoreNewsletters.Newsletter>
+              </li>
+              <li>
+                <CoreNewsletters.Newsletter>
+                  <CoreNewsletters.Image />
+                  <CoreNewsletters.Category>
+                    News &amp; Politics
+                  </CoreNewsletters.Category>
+                </CoreNewsletters.Newsletter>
+              </li>
+              <li>
+                <CoreNewsletters.Newsletter>
+                  <CoreNewsletters.Image />
+                  <CoreNewsletters.Category>
+                    News &amp; Politics
+                  </CoreNewsletters.Category>
+                </CoreNewsletters.Newsletter>
+              </li>
+              <li>
+                <CoreNewsletters.Newsletter>
+                  <CoreNewsletters.Image />
+                  <CoreNewsletters.Category>
+                    News &amp; Politics
+                  </CoreNewsletters.Category>
+                </CoreNewsletters.Newsletter>
+              </li>
+            </Core.RowList>
           </CoreNewsletters.Section>
         </Core.PageBody>
       </Core.Page>

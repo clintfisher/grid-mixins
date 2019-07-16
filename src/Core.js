@@ -282,7 +282,6 @@ export const RowList = styled('ul')`
 
   > li {
     margin-bottom: ${pxToRem(32)};
-    background-color: pink;
 
     &:last-child {
       margin-bottom: 0;

@@ -42,10 +42,10 @@ export const SectionHeader = styled('header')`
 
 export const Newsletter = styled('article')`
   position: relative;
-  /* width: 100%; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: ${vars.white}; */
+  background-color: ${vars.white};
 `;
 
 export const Category = styled('p')`
@@ -69,7 +69,7 @@ export const Frequency = styled('p')`
 export const Image = styled('div')`
   margin: 0 0 ${pxToRem(10)};
   width: 100%;
-  background-color: smoke;
+  background-color: whitesmoke;
   min-height: 200px;
 
   img {
