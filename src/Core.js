@@ -194,6 +194,7 @@ const rowBase = (props) => {
 
     @supports (grid-area: auto) {
       display: grid;
+      grid-template-columns: subgrid;
       ${gridColumn(1, -1, false)};
       align-content: start;
     }
@@ -291,7 +292,7 @@ export const RowList = styled('ul')`
     }
 
     @supports (grid-area: auto) {
-      ${gridColumn(2, 6)};
+      ${gridColumn(1, 6)};
     }
   } // end li
 
@@ -327,19 +328,19 @@ export const RowList = styled('ul')`
         } // end last-of-type
 
         &:nth-of-type(1) {
-          ${gridColumn(2, 2)};
+          ${gridColumn(1, 2)};
         }
 
         &:nth-of-type(2) {
-          ${gridColumn(4, 2)};
+          ${gridColumn(3, 2)};
         }
 
         &:nth-of-type(3) {
-          ${gridColumn(6, 2)};
+          ${gridColumn(5, 2)};
         }
 
         &:nth-of-type(4) {
-          ${gridColumn(8, 2)};
+          ${gridColumn(7, 2)};
         }
       } // end supports
     } // end li
@@ -356,19 +357,19 @@ export const RowList = styled('ul')`
         }
 
         &:nth-of-type(1) {
-          ${gridColumn(2, 3)};
+          ${gridColumn(1, 3)};
         }
 
         &:nth-of-type(2) {
-          ${gridColumn(5, 3)};
+          ${gridColumn(4, 3)};
         }
 
         &:nth-of-type(3) {
-          ${gridColumn(8, 3)};
+          ${gridColumn(7, 3)};
         }
 
         &:nth-of-type(4) {
-          ${gridColumn(11, 3)};
+          ${gridColumn(10, 3)};
         }
       } // end supports
     } // end li
@@ -414,7 +415,7 @@ export const SectionHeader = styled('header')`
       ${(props) => {
         return props.fullWidth
           ? css`
-              ${gridColumn(2, 8)};
+              ${gridColumn(1, 8)};
             `
           : '';
       }};
@@ -426,7 +427,7 @@ export const SectionHeader = styled('header')`
       ${(props) => {
         return props.fullWidth
           ? css`
-              ${gridColumn(2, 12, 'desktop')};
+              ${gridColumn(1, 12, 'desktop')};
             `
           : '';
       }};

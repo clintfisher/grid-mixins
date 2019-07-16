@@ -35,15 +35,6 @@ export const Section = styled('section')`
 
 export const SectionHeader = styled('header')`
   margin-bottom: ${pxToRem(40)};
-  padding: 0 ${pxToRem(20)};
-
-  @media (min-width: ${vars.tablet}) {
-    padding: 0 ${pxToRem(30)};
-  }
-
-  @media (min-width: ${vars.desktop}) {
-    padding: 0 ${pxToRem(40)};
-  }
 `;
 
 export const Newsletter = styled('article')`
@@ -74,6 +65,8 @@ export const Frequency = styled('p')`
 
 export const Image = styled('figure')`
   margin: 0 0 ${pxToRem(10)};
+  background-color: fuchsia;
+  min-height: 200px;
 
   img {
     object-fit: cover;

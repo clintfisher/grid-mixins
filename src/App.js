@@ -32,13 +32,32 @@ const App = () => {
           <Core.HR />
           <CoreNewsletters.Section>
             <CoreNewsletters.SectionHeader>
-              LA Times Newsletters
+              <Core.SectionHeading>LA Times Newsletters</Core.SectionHeading>
             </CoreNewsletters.SectionHeader>
             <Core.RowList>
               <li>
-                <article>
+                <CoreNewsletters.Newsletter>
                   <CoreNewsletters.Image />
-                </article>
+                  <CoreNewsletters.Category>Sports</CoreNewsletters.Category>
+                </CoreNewsletters.Newsletter>
+              </li>
+              <li>
+                <CoreNewsletters.Newsletter>
+                  <CoreNewsletters.Image />
+                  <CoreNewsletters.Category>Sports</CoreNewsletters.Category>
+                </CoreNewsletters.Newsletter>
+              </li>
+              <li>
+                <CoreNewsletters.Newsletter>
+                  <CoreNewsletters.Image />
+                  <CoreNewsletters.Category>Sports</CoreNewsletters.Category>
+                </CoreNewsletters.Newsletter>
+              </li>
+              <li>
+                <CoreNewsletters.Newsletter>
+                  <CoreNewsletters.Image />
+                  <CoreNewsletters.Category>Sports</CoreNewsletters.Category>
+                </CoreNewsletters.Newsletter>
               </li>
             </Core.RowList>
           </CoreNewsletters.Section>
