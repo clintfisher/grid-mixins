@@ -25,6 +25,8 @@ export const hr = css`
 `;
 
 export const Section = styled('section')`
+  display: grid;
+  grid-template-columns: subgrid;
   ${gridColumn(1, -1, false)};
   margin-bottom: 2rem;
 
@@ -34,15 +36,16 @@ export const Section = styled('section')`
 `;
 
 export const SectionHeader = styled('header')`
+  ${gridColumn(1, -1, false)};
   margin-bottom: ${pxToRem(40)};
 `;
 
 export const Newsletter = styled('article')`
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
-  background-color: ${vars.white};
+  /* background-color: ${vars.white}; */
 `;
 
 export const Category = styled('p')`
@@ -63,9 +66,10 @@ export const Frequency = styled('p')`
   color: ${vars.gray40};
 `;
 
-export const Image = styled('figure')`
+export const Image = styled('div')`
   margin: 0 0 ${pxToRem(10)};
-  background-color: fuchsia;
+  width: 100%;
+  background-color: smoke;
   min-height: 200px;
 
   img {
