@@ -155,17 +155,19 @@ export const PageBody = styled('main')`
   @supports (grid-area: auto) {
     display: grid;
     grid-template-columns: subgrid;
-    ${gridColumn(1, -1, false)};
+    ${gridColumn(2, 6)};
     ${gridRow(3, 1)};
     margin-right: 0;
     margin-left: 0;
 
     @media (min-width: ${vars.tablet}) {
+      ${gridColumn(2, 8)};
       margin-right: 0;
       margin-left: 0;
     }
 
     @media (min-width: ${vars.desktop}) {
+      ${gridColumn(2, 12)};
       margin-right: 0;
       margin-left: 0;
     }
