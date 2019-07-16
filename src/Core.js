@@ -382,18 +382,18 @@ export const HR = styled('hr')`
   border-top: 1px solid ${vars.gray90};
 
   @supports (grid-area: auto) {
-    ${gridColumn(2, 6)};
+    ${gridColumn(1, 6)};
   }
 
   @media (min-width: ${vars.tablet}) {
     @supports (grid-area: auto) {
-      ${gridColumn(2, 8)};
+      ${gridColumn(1, 8)};
     }
   }
 
   @media (min-width: ${vars.desktop}) {
     @supports (grid-area: auto) {
-      ${gridColumn(2, 12)};
+      ${gridColumn(1, 12)};
     }
   }
 `;
