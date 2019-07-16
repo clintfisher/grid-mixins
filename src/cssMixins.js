@@ -1,5 +1,77 @@
 import vars from './cssVars';
 
+// fonts
+
+/*
+  `fontFamily()` and `fontSize()` can be used
+  individually as needed for when you only need
+  to set the family or size. `font()` is a shortcut
+  function which calls both `fontFamily()` and `fontSize()`
+*/
+
+/**
+ * Returns the specified font family css
+ * @param {string} name - the name of the font
+ * @param {string, number} weight - the weight of the font ('bold', 700)
+ * @param {string} style - the style of the font (normal, italic etc)
+ * @example
+ * // ${fontFamily({ name: vars.bentonGothicMedium })};
+ */
+export const fontFamily = ({ name, weight = 'normal', style = 'normal' }) => {
+  return `{
+    font-family: ${name};
+    font-weight: ${weight};
+    font-style: ${style};
+  }`;
+};
+
+/**
+ * Returns the specified font size and line height css
+ * note: edge only outputs to two decimal places: 0.87rem vs 0.875rem
+ * @param {number} size - the size of the font - no unit is req'd
+ * @param {number} lineHeight - the line-height of the font - no unit is req'd
+ * @param {number} sizeBase - browser default (16) used as base for calculations
+ * @example
+ * // fontSize({ size: 30, lineHeight: 30 })
+ */
+export const fontSize = ({
+  size,
+  lineHeight,
+  sizeBase = vars.baseFontSize
+}) => {
+  const newFontSize = size / sizeBase;
+  const newLineHeight = lineHeight / sizeBase;
+  return `{
+    font-size: ${size}px;
+    font-size: ${newFontSize}rem;
+    line-height: ${lineHeight}px;
+    line-height: ${newLineHeight}rem;
+  }`;
+};
+
+/**
+ * Returns the specified font-family and font-size/line-height css
+ * @param {string} name - the name of the font
+ * @param {number} size - the size of the font - no unit is req'd
+ * @param {number} lineHeight - the line-height of the font - no unit is req'd
+ * @param {string, number} weight - the weight of the font
+ * @param {string} style - the style of the font (normal, italic etc)
+ * @example
+ * // font({ name: vars.bentonGothicRegular, size: 12, lineHeight: 22 })
+ */
+export const font = ({
+  name,
+  size,
+  lineHeight,
+  weight = 'normal',
+  style = 'normal'
+}) => {
+  return `
+    ${fontFamily({ name, weight, style })}
+    ${fontSize({ size, lineHeight })}
+  `;
+};
+
 /**
  * Returns the a rem value from a px value input
  * @param {number} size - the desired size in px, integer only
@@ -110,4 +182,76 @@ export const gridRow = (start, end, span = true) => {
   return `
     grid-row: ${start} / ${span ? `span ${end}` : end};
   `;
+};
+
+/**
+ * @function visuallyHidden - hides an element while remaining sreenreader accessible
+ * @param { bool } hidden - true to hide an element, false to show a prev hidden element
+ * @param { bool } focusable - allows element to be hidden but visible on active & focus states
+ * @returns { string } - hidden, visible & focusable styles
+ */
+export const visuallyHidden = (hidden = true, focusable = false) => {
+  const isHidden = `
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    white-space: nowrap;
+    `;
+  const isVisible = `
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: auto;
+    overflow: visible;
+    white-space: normal;
+  `;
+  // const isFocusable = `
+  //   ${`:active,
+  //     :focus {
+  //       ${isVisible}
+  //     }`}
+  // `;
+  /*
+  unfortunately, i had to create this because i couldnt
+  get a return that would work for both isHidden and isFocusable
+  `return isHidden && isFocusable;
+  i would only get isFocusable returned with the above.
+  maybe something is wrong with my return logic or i am not able
+  to join two template literals in the way i was attempting
+ */
+  const isHiddenisFocusable = `
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    white-space: nowrap;
+    :active,
+    :focus {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      clip: auto;
+      overflow: visible;
+      white-space: normal;
+    }
+  `;
+
+  if (hidden) {
+    if (focusable) {
+      return isHiddenisFocusable;
+    }
+    return isHidden;
+  }
+  return isVisible;
 };

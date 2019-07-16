@@ -1,6 +1,8 @@
 import React from 'react';
 import GlobalStyles from './GlobalStyles';
 import * as Core from './Core';
+import * as CoreNav from './CoreNav';
+import * as Navs from './Navs';
 
 const App = () => {
   return (
@@ -8,9 +10,18 @@ const App = () => {
       <GlobalStyles />
       <Core.Page>
         <Core.PageHeader>
+          <CoreNav.QuickNav data-testid="QuickNav">
+            <CoreNav.QuickNavMenu>
+              <li>
+                <CoreNav.HomeLink />
+              </li>
+            </CoreNav.QuickNavMenu>
+          </CoreNav.QuickNav>
           <Core.PageLogo>
             <img src="logo-lat-701x88-333333.svg" alt="Los Angeles Times" />
           </Core.PageLogo>
+          <Navs.UserNav />
+          <Navs.Nav />
         </Core.PageHeader>
         <Core.PageSubheader>
           <Core.PageSubheading>Cherry Valance</Core.PageSubheading>

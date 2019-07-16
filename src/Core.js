@@ -26,32 +26,22 @@ export const Page = styled('div')`
     @media (min-width: ${vars.desktop}) {
       ${grid('desktop')};
     }
-  }
+  } // end supports
 `;
 
 export const PageHeader = styled('header')`
   min-height: ${pxToRem(48)};
+  padding-top: 1rem;
   border-bottom: 1px solid ${vars.gray90};
 
   @supports (grid-area: auto) {
-    ${grid('mobile')};
-    ${gridColumn(1, -1, false, 'mobile')};
+    display: grid;
+    grid-template-columns: subgrid;
+    ${gridColumn(1, -1, false)};
   }
 
   @media (min-width: ${vars.tablet}) {
     min-height: ${pxToRem(64)};
-
-    @supports (grid-area: auto) {
-      ${grid('tablet')};
-      ${gridColumn(1, -1, false, 'tablet')};
-    }
-  } // end tablet
-
-  @media (min-width: ${vars.desktop}) {
-    @supports (grid-area: auto) {
-      ${grid('desktop')};
-      ${gridColumn(1, -1, false, 'desktop')};
-    }
   }
 `;
 

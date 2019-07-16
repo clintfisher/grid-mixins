@@ -1,3 +1,12 @@
+// base fonts
+const bodyRegular = 'georgia';
+const serviceLight = 'open-sans-light';
+const serviceRegular = 'open-sans-regular';
+const serviceSemiBold = 'open-sans-semi-bold';
+const serviceBold = 'open-sans-bold';
+const serifFallback = 'georgia, "times new roman", times, serif';
+const sansFallback = '"helvetica neue", helvetica, arial, sans-serif';
+
 // palette
 const black = '#000';
 const white = '#fff';
@@ -21,7 +30,17 @@ const baseFontSize = 16;
 const tablet = '750px';
 const desktop = '1000px';
 
+// animation
+const easeOutAll = 'all 0.2s ease-out';
+
 export default {
+  bodyRegular,
+  serviceLight,
+  serviceRegular,
+  serviceSemiBold,
+  serviceBold,
+  serifFallback,
+  sansFallback,
   baseFontSize,
   tablet,
   desktop,
@@ -38,5 +57,6 @@ export default {
   pacific,
   green,
   appleGreen,
-  highlighter
+  highlighter,
+  easeOutAll
 };

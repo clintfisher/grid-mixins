@@ -1,7 +1,7 @@
 {
-  "name": "js-grid-mixin-refactor",
+  "name": "mc-subgrid",
   "version": "1.0.0",
-  "description": "refactor grid mixins to remove Edge/IE 11 code, since we are using feature queries and serving flex to those browsers",
+  "description": "implement subgrid",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -10,6 +10,7 @@
     "babel-plugin-emotion": "10.0.14",
     "react": "16.8.6",
     "react-dom": "16.8.6",
+    "react-router-dom": "5.0.1",
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
