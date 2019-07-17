@@ -96,6 +96,29 @@ const App = () => {
             </Core.RowList>
           </CoreNewsletters.Section>
         </Core.PageBody>
+        <Core.PageFooter>
+          <Core.Copyright>&copy; 2019 Los Angeles Times</Core.Copyright>
+          <CoreNav.CompanyNav>
+            <CoreNav.CompanyNavMenu>
+              <CoreNav.CompanyNavMenuItem>
+                <CoreNav.CompanyNavSubMenu>
+                  <li>
+                    <a href="/">Terms of Service</a>
+                  </li>
+                  <li>
+                    <a href="/">Privacy Policy</a>
+                  </li>
+                  <li>
+                    <a href="/">About Us</a>
+                  </li>
+                </CoreNav.CompanyNavSubMenu>
+              </CoreNav.CompanyNavMenuItem>
+              <CoreNav.CompanyNavMenuItem last>
+                <span>2300 E Imperial Highway, El Segundo, CA 90245</span>
+              </CoreNav.CompanyNavMenuItem>
+            </CoreNav.CompanyNavMenu>
+          </CoreNav.CompanyNav>
+        </Core.PageFooter>
       </Core.Page>
     </Core.Shell>
   );

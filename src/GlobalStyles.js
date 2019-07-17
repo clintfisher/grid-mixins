@@ -17,6 +17,17 @@ const GlobalStyles = () => {
           font-family: 'Open Sans', sans-serif;
           color: ${vars.gray40};
         }
+        a {
+          text-decoration: none;
+          color: ${vars.aqua};
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        button {
+          cursor: pointer;
+        }
       `}
     />
   );

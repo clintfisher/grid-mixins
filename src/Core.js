@@ -174,6 +174,26 @@ export const PageBody = styled('main')`
   } // end supports
 `;
 
+export const PageFooter = styled('footer')`
+  display: flex;
+  flex-direction: column;
+  padding: ${pxToRem(16)} 0;
+  border-top: 1px solid ${vars.gray90};
+
+  @supports (grid-area: auto) {
+    ${gridColumn(1, -1, false)};
+    ${gridRow(4, 1)};
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: start;
+  }
+
+  @media (min-width: ${vars.tablet}) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
 // Row base styles
 
 const rowBase = (props) => {
@@ -531,6 +551,27 @@ export const Subcolumn = styled('div')`
       &:last-child {
         ${gridColumn(8, 6)};
       }
+    }
+  }
+`;
+
+export const Copyright = styled('p')`
+  font-size: 12px;
+  line-height: 20px;
+  margin: 0 0 ${pxToRem(32)} ${pxToRem(16)};
+  color: ${vars.gray40};
+
+  @supports (grid-area: auto) {
+    ${gridColumn(2, 6)};
+    margin-left: 0;
+  }
+
+  @media (min-width: ${vars.tablet}) {
+    margin-left: ${pxToRem(32)};
+
+    @supports (grid-area: auto) {
+      ${gridColumn(2, 3)};
+      margin-left: 0;
     }
   }
 `;
